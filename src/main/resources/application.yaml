@@ -1,0 +1,11 @@
+spring:
+  application.name: spring-webflux-dialogflow-cx
+#  cloud:
+#    gcp:
+#      credentials:
+#        location: classpath:tirmizee-service-account.json
+
+dialogflow:
+  project-id: tirmizee
+  agent-id: 896e8ac8-f1bb-4bac-af35-91fa4d1c3012
+  language-code: th
