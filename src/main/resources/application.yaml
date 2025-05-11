@@ -8,4 +8,4 @@ spring:
 dialogflow:
   project-id: tirmizee
   agent-id: 896e8ac8-f1bb-4bac-af35-91fa4d1c3012
-  language-code: th
+  region: asia-southeast1

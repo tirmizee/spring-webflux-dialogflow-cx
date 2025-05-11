@@ -8,7 +8,7 @@ import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Configuration
-public class WebClientConfig {
+public class DialogflowWebClientConfig {
 
     @Bean
     public WebClient dialogflowWebClient() throws Exception {

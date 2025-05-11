@@ -11,5 +11,5 @@ public class DialogflowProperty {
     private String credentialsFile;
     private String projectId;
     private String agentId;
-    private String languageCode;
+    private String region;
 }
