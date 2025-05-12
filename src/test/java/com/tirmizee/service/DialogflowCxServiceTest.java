@@ -1,6 +1,5 @@
 package com.tirmizee.service;
 
-import com.google.cloud.dialogflow.cx.v3.QueryResult;
 import com.tirmizee.model.DialogflowResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,6 +3,7 @@ package com.tirmizee.service;
 import com.google.cloud.dialogflow.cx.v3.*;
 import com.tirmizee.config.property.DialogflowProperty;
 import com.tirmizee.model.DialogflowResponse;
+import com.tirmizee.utils.MapperUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
@@ -40,28 +41,8 @@ public class DialogflowCxService {
                     .build();
 
             DetectIntentResponse response = sessionsClient.detectIntent(request);
-            return toResponse(response.getQueryResult());
+            return MapperUtils.toResponse(response.getQueryResult());
         }).subscribeOn(Schedulers.boundedElastic()); // ✅ Run in non-blocking background thread
-    }
-
-    public static DialogflowResponse toResponse(QueryResult result) {
-
-        DialogflowResponse response = new DialogflowResponse();
-
-        // ข้อความที่ผู้ใช้พิมพ์มา
-        response.setUserInput(result.getText());
-
-        // Intent ที่ match
-        response.setMatchedIntent(result.getIntent().getDisplayName());
-
-        // ข้อความที่ Dialogflow ตอบกลับ
-        for (ResponseMessage msg : result.getResponseMessagesList()) {
-            if (msg.hasText()) {
-                response.getReplies().addAll(msg.getText().getTextList());
-            }
-        }
-
-        return response;
     }
 
 }
